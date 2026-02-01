@@ -1,0 +1,29 @@
+---
+import { type CollectionEntry } from "astro:content";
+
+type Props = {
+   post: CollectionEntry<"posts">;
+};
+
+const { post } = Astro.props;
+---
+
+<article
+   class="p-3 rounded-xl hover:shadow-lg transition-shadow duration-300 bg-teal-600/4"
+>
+   <a href={`/blog/${post.slug}`}>
+      <img
+         src={post.data.image}
+         width={600}
+         height={600 / 1.5}
+         alt={post.data.title}
+         class="rounded-2xl mb-1"
+      /></a
+   >
+   <a
+      href={`/blog/${post.slug}`}
+      class="text-4xl text-zinc-900 font-semibold inline-block mb-2"
+      ><h2>{post.data.title}</h2></a
+   >
+   <p class="text-zinc-500 text-2xl line-clamp-2">{post.body}</p>
+</article>
