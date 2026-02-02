@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
 
 type Props = {
    post: CollectionEntry<"posts">;
@@ -12,7 +13,7 @@ const { post } = Astro.props;
    class="p-3 rounded-xl hover:shadow-lg transition-shadow duration-300 bg-teal-600/4"
 >
    <a href={`/blog/${post.slug}`}>
-      <img
+      <Image
          src={post.data.image}
          width={600}
          height={600 / 1.5}
